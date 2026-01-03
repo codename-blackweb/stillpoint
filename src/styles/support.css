@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Inter:wght@100;200;300;400&display=swap");
+
+.support-root {
+  --slate-main: #6c6e75;
+  --bg-color: #4a4c52;
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(242, 242, 242, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.support-root .serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.support-root .italic {
+  font-style: italic;
+}
+
+.support-root .texture-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+
+
+
+
+
+.support-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.support-nav .nav-brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.6em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.support-nav .nav-links a {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-left: 3rem;
+  text-decoration: none;
+}
+
+.support-nav .nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.support-main {
+  padding: 12rem 4rem 10rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 30;
+}
+
+.support-root .hero-section {
+  max-width: 800px;
+  margin-bottom: 6rem;
+}
+
+.support-root .section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.support-root .hero-title {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.support-root .hero-text {
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+.support-root .crisis-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+  .support-root .crisis-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.support-root .resource-card {
+  border: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+}
+
+.support-root .resource-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-primary);
+}
+
+.support-root .resource-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.support-root .resource-main {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.support-root .resource-sub {
+  font-size: 0.85rem;
+  font-weight: 200;
+  color: var(--text-secondary);
+}
+
+.support-root .info-matrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (min-width: 1024px) {
+  .support-root .info-matrix {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.support-root .matrix-title {
+  font-family: "Bodoni Moda", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.support-root .matrix-text {
+  font-weight: 200;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+.support-root .bullet-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.support-root .bullet-list li {
+  font-size: 0.85rem;
+  font-weight: 200;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.support-root .bullet-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  opacity: 0.5;
+}
+
+.support-root .scope-box {
+  grid-column: 1 / -1;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+}
+
+.support-root .scope-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .support-root .scope-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.support-root .contact-box {
+  text-align: center;
+  margin-top: 8rem;
+  padding-top: 6rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.support-root .contact-box .matrix-text {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.support-root .email-link {
+  font-family: "Bodoni Moda", serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.support-root .email-link:hover {
+  opacity: 0.6;
+}
+
+.support-root .support-footer {
+  margin-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+  .support-main {
+    padding: 10rem 2.5rem 8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .support-main {
+    padding: 9rem 1.5rem 6rem;
+  }
+
+  .support-nav {
+    padding: 2rem 2rem;
+  }
+
+  .support-nav .nav-links a {
+    margin-left: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+}

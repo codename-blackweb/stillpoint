@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@100;200;300;400&display=swap");
+
+:root {
+  --slate-main: #6c6e75;
+  --bg-color: #4a4c52;
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(242, 242, 242, 0.6);
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+.home-root {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-root .serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.home-root .texture-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+.home-root .grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 100px 100px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  z-index: -1;
+  opacity: 0.3;
+  transform: translate(var(--grid-x, 0px), var(--grid-y, 0px));
+}
+
+.home-root .ambient-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 140vw;
+  height: 140vh;
+  background: radial-gradient(circle at center, var(--slate-main) 0%, transparent 60%);
+  z-index: -2;
+  opacity: 0.35;
+  animation: breathe 15s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: translate(
+      calc(-50% + var(--glow-x, 0px)),
+      calc(-50% + var(--glow-y, 0px))
+    ) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(
+      calc(-50% + var(--glow-x, 0px)),
+      calc(-50% + var(--glow-y, 0px))
+    ) scale(1.08);
+    opacity: 0.45;
+  }
+}
+
+.home-root main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 30;
+  padding: 0 2rem;
+}
+
+.home-root .main-title {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 100;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  opacity: 0;
+  animation: slideUp 2.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-root .sub-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  max-width: 440px;
+  line-height: 2;
+  opacity: 0;
+  animation: fadeIn 3s 1.2s forwards ease;
+}
+
+.home-root .cta-button {
+  margin-top: 5rem;
+  padding: 1.1rem 3.5rem;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 3s 1.8s forwards ease;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-root .cta-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.6em;
+}
+
+.home-root .overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.9)
+  );
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 2s forwards;
+}
+
+.home-root .arrive-text {
+  font-weight: 200;
+  letter-spacing: 1em;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.home-root .arrive-text:hover {
+  letter-spacing: 1.2em;
+  color: #ffffff;
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

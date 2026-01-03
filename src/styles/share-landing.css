@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@100;200;300;400&display=swap");
+
+:root {
+  --bg-color: #4a4c52;
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(242, 242, 242, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.share-landing-root {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.texture-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+
+
+
+
+
+nav.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.6em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+main {
+  padding: 12rem 2rem 10rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 30;
+}
+
+.section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+}
+
+.content-block {
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+.content-block p {
+  margin-bottom: 1.5rem;
+}
+
+.workflow-block {
+  border-left: 1px solid var(--border-color);
+  padding-left: 2rem;
+  margin: 3.5rem 0;
+}
+
+.workflow-step {
+  margin-bottom: 2.5rem;
+}
+
+.workflow-step h3 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.workflow-step p {
+  font-size: 0.95rem;
+  font-weight: 200;
+  color: var(--text-secondary);
+}
+
+.guidance-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 200;
+  color: var(--text-secondary);
+}
+
+.guidance-list li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.guidance-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  opacity: 0.4;
+}
+
+.btn-begin {
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 1.25rem 3.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-begin:hover {
+  border-color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.support-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+}

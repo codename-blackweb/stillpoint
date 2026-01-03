@@ -1,0 +1,17 @@
+.site-footer {
+  padding: 3rem 2rem 3.5rem;
+  text-align: center;
+  z-index: 30;
+  position: relative;
+}
+
+.site-footer__note {
+  margin: 0 auto;
+  max-width: 60ch;
+  color: var(--text-secondary, rgba(242, 242, 242, 0.6));
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}

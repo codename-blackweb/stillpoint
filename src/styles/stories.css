@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Inter:wght@200;300;400&display=swap");
+
+.stories-root {
+  --bg: #4a4c52;
+  --text: #f2f2f2;
+  --muted: rgba(242, 242, 242, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-primary: #f2f2f2;
+  --text-secondary: rgba(242, 242, 242, 0.6);
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.stories-serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.stories-root .texture-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+
+
+
+
+
+.stories-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12rem 4rem 6rem;
+  position: relative;
+  z-index: 30;
+}
+
+.stories-hero {
+  max-width: 800px;
+  margin-bottom: 8rem;
+}
+
+.stories-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.stories-title {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 200;
+  line-height: 1;
+  margin: 0 0 2rem;
+}
+
+.stories-lede {
+  font-weight: 200;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6rem;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.story-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-card {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  cursor: pointer;
+}
+
+.story-card:hover {
+  border-top-color: var(--text);
+}
+
+.story-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.story-title {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin: 0 0 1rem;
+}
+
+.story-excerpt {
+  font-size: 0.95rem;
+  font-weight: 200;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.story-attr {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.stories-notice {
+  margin-top: 8rem;
+  border: 1px solid var(--border);
+  padding: 3rem;
+  text-align: center;
+}
+
+.stories-notice-text {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 200;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.stories-disclaimer {
+  margin-top: 10rem;
+  border-top: 1px solid var(--border);
+  padding: 4rem 0;
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.stories-reader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.6s ease;
+  overflow-y: auto;
+}
+
+.stories-reader.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.reader-inner {
+  max-width: 700px;
+  margin: 10rem auto;
+  padding: 0 2rem;
+}
+
+.stories-close {
+  position: fixed;
+  top: 3rem;
+  right: 4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  cursor: pointer;
+  opacity: 0.6;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+.stories-close:hover {
+  opacity: 1;
+}
+
+.reader-title {
+  margin: 0 0 1.5rem;
+}
+
+.reader-body {
+  margin: 0 0 2rem;
+  font-weight: 200;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .stories-main {
+    padding: 10rem 2.5rem 5rem;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stories-close {
+    right: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .stories-main {
+    padding: 9rem 1.5rem 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-grid {
+    opacity: 1;
+    transform: none;
+  }
+
+}

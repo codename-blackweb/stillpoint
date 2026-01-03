@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Inter:wght@200;300;400&display=swap");
+
+.how-root {
+  --bg: #4a4c52;
+  --text: #f2f2f2;
+  --muted: rgba(242, 242, 242, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+  --text-secondary: rgba(242, 242, 242, 0.6);
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.how-serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.how-root .texture-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+
+
+
+
+
+.how-root .grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at center, #000000, transparent 90%);
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.how-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12rem 4rem 6rem;
+  position: relative;
+  z-index: 30;
+}
+
+.how-section-label {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.how-hero {
+  margin-bottom: 8rem;
+}
+
+.how-hero-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 200;
+  line-height: 1;
+  margin: 0;
+}
+
+.how-hero-copy {
+  margin-top: 2rem;
+  max-width: 640px;
+  font-weight: 200;
+  color: var(--muted);
+}
+
+.how-step {
+  position: relative;
+  padding-left: 4rem;
+  margin-bottom: 6rem;
+  opacity: 0;
+  animation: how-reveal 1.4s ease forwards;
+}
+
+.how-step:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.how-step:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.how-step:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.how-step:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.how-step:nth-child(5) {
+  animation-delay: 1s;
+}
+
+@keyframes how-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.how-step-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 3rem;
+  font-weight: 100;
+  opacity: 0.2;
+}
+
+.how-step-content {
+  border-left: 1px solid var(--border);
+  padding-left: 3rem;
+}
+
+.how-step-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem;
+}
+
+.how-step-details {
+  font-weight: 200;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.how-step-list {
+  margin: 1.5rem 0 0;
+  list-style: none;
+  padding: 0;
+}
+
+.how-step-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.how-step-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 4px;
+  height: 1px;
+  background: var(--text);
+  opacity: 0.5;
+}
+
+.how-definition {
+  margin-top: 10rem;
+  padding-top: 6rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .how-definition {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.how-status {
+  font-size: 0.6rem;
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.8rem;
+  display: inline-block;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.how-definition-title {
+  margin: 0 0 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.how-cta {
+  margin-top: 10rem;
+  padding: 8rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.how-cta-title {
+  margin: 0 0 2rem;
+  font-weight: 300;
+}
+
+.how-cta-link {
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  border: 1px solid var(--text);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.how-cta-link:hover,
+.how-cta-link:focus-visible {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.how-root .site-footer {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .how-main {
+    padding: 10rem 2.5rem 5rem;
+  }
+
+  .how-step {
+    padding-left: 3rem;
+  }
+
+  .how-step-content {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .how-main {
+    padding: 9rem 1.5rem 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-step {
+    animation: none;
+    opacity: 1;
+  }
+
+}
