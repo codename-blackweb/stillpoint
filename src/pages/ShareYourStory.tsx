@@ -47,14 +47,23 @@ export default function ShareYourStory() {
         body: JSON.stringify({ mode, content: storyValue }),
       });
 
-      const data = await response.json();
+      const responseText = await response.text();
+      const data = responseText ? (() => {
+        try {
+          return JSON.parse(responseText);
+        } catch {
+          return null;
+        }
+      })() : null;
+
       if (!response.ok) {
-        throw new Error(data?.error ?? "Request failed.");
+        const message = typeof data?.error === "string" ? data.error : "Request failed.";
+        throw new Error(message);
       }
 
       const output = typeof data?.output === "string" ? data.output.trim() : "";
       if (!output) {
-        throw new Error("No response received.");
+        throw new Error("Unexpected response from the server.");
       }
 
       if (mode === "title") {
