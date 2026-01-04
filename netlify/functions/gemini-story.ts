@@ -2,13 +2,15 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 12;
 const RATE_LIMIT_STORE = new Map<string, { count: number; resetAt: number }>();
 
-const PROMPTS: Record<string, (content: string) => string> = {
-  title: (content) =>
-    `Generate 5 short, evocative, emotionally restrained titles for the following personal narrative. Avoid clichés. Titles should be subtle and reflective.\n\n${content}`,
-  prompt: (content) =>
-    `Offer a single, gentle reflection prompt to help the writer continue or deepen their story. Do not give advice. Do not diagnose.\n\n${content}`,
-  refine: (content) =>
-    `Refine the following narrative for clarity and flow while preserving the author's voice and meaning. Do not add new facts or emotional interpretation.\n\n${content}`,
+const PROMPTS: Record<string, Record<string, (content: string) => string>> = {
+  v1: {
+    title: (content) =>
+      `Generate 5 short, evocative, emotionally restrained titles for the following personal narrative. Avoid clichés. Titles should be subtle and reflective.\n\n${content}`,
+    prompt: (content) =>
+      `Offer a single, gentle reflection prompt to help the writer continue or deepen their story. Do not give advice. Do not diagnose.\n\n${content}`,
+    refine: (content) =>
+      `Refine the following narrative for clarity and flow while preserving the author's voice and meaning. Do not add new facts or emotional interpretation.\n\n${content}`,
+  },
 };
 
 function jsonResponse(statusCode: number, payload: Record<string, unknown>) {
@@ -77,7 +79,7 @@ export async function handler(event: { httpMethod: string; body?: string | null;
     return jsonResponse(500, { error: "Missing API key." });
   }
 
-  let body: { mode?: string; content?: string };
+  let body: { mode?: string; content?: string; version?: string };
   try {
     body = JSON.parse(event.body ?? "{}");
   } catch {
@@ -85,9 +87,14 @@ export async function handler(event: { httpMethod: string; body?: string | null;
   }
 
   const mode = body.mode?.trim();
+  const version = body.version?.trim() || "v1";
   const content = body.content?.trim();
 
-  if (!mode || !PROMPTS[mode]) {
+  if (!PROMPTS[version]) {
+    return jsonResponse(400, { error: "Invalid prompt version." });
+  }
+
+  if (!mode || !PROMPTS[version][mode]) {
     return jsonResponse(400, { error: "Invalid mode." });
   }
 
@@ -99,7 +106,7 @@ export async function handler(event: { httpMethod: string; body?: string | null;
     return jsonResponse(413, { error: "Content is too long." });
   }
 
-  const prompt = PROMPTS[mode](content);
+  const prompt = PROMPTS[version][mode](content);
 
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10_000);
