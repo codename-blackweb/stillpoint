@@ -59,7 +59,10 @@ export default function Home() {
       <SiteNav />
 
       <main>
-        <h1 className="serif main-title">Stillpoint</h1>
+        <div className="title-lockup">
+          <h1 className="serif main-title">Stillpoint</h1>
+          <span className="title-byline">by SHATTERPROOF</span>
+        </div>
 
         <p className="sub-text">
           A quiet digital space designed for intentional reflection, without pressure or
